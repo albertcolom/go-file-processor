@@ -1,0 +1,19 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+.history/
+*.sublime-workspace
+*.sublime-project
+mock_*.go
+*.db
+*.json
+bin/
+
+# Environment
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Dependency directories
+vendor/
