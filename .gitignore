@@ -9,6 +9,7 @@ mock_*.go
 *.db
 *.json
 bin/
+*.csv
 
 # Environment
 .DS_Store
