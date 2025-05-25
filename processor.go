@@ -44,7 +44,13 @@ func processFile(file io.Reader, numWorkers int, chunkSize int) {
 
 				chunk.payloads = append(chunk.payloads, payload)
 			}
-			payloadChan <- chunk
+
+			if len(chunk.payloads) > 0 {
+				payloadChan <- chunk
+			} else {
+				releaseChunk(chunk)
+				break
+			}
 		}
 
 		if err := scanner.Err(); err != nil {
