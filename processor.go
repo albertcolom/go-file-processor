@@ -31,11 +31,8 @@ func processFile(file io.Reader, numWorkers int, chunkSize int) {
 
 	go func() {
 		defer close(payloadChan)
-
-		var chunk *Chunk
-		for scanner.Scan() {
-			chunk = getChunk()
-
+		for {
+			chunk := getChunk()
 			for len(chunk.payloads) < chunkSize && scanner.Scan() {
 				payload := getPayload()
 
